@@ -1,9 +1,10 @@
 import { Typography, Card, Box } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 
 import StorageIcon from '@material-ui/icons/Storage';
 import DeviceHubIcon from '@material-ui/icons/DeviceHub';
 import { grey } from '@material-ui/core/colors';
+import useStyles from './styles';
+
 
 interface Package {
     name: string,
@@ -15,22 +16,11 @@ interface Package {
     }
 }
 
-const useStyles = makeStyles({
-    root: {
-        margin: 20,
-        padding: 20
-    },
-    links : {
-        '> .MuiTypography-root' : {
-            marginRight: 36
-        }
-    }
-});
 const CardPackage = ({ name, version, description, links }: Package) => {
     const classes = useStyles();
     return (
         <>
-            <Card className={classes.root} variant="outlined">
+            <Card className={classes.cardroot} variant="outlined">
                 <Box display={"flex"} alignItems={"center"}>
                     <Box mr={2}>
                         <DeviceHubIcon fontSize={"small"} style={{ color: grey[400] }} />
