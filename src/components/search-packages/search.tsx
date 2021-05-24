@@ -1,23 +1,14 @@
 import { useState } from 'react';
 import { useActions } from '../../hooks/useActions';
 import { Box, Button, TextField, Card } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-// import SendIcon from '@material-ui/icons/Send';
 
-const useStyles = makeStyles({
-    root: {
-        margin: 20,
-        backgroundColor: "#fff"
-    },
-    postTitle: {
-        fontSize: 48
-    },
-});
+import useStyles from './styles'
+
 const Search = () => {
     const [term, setTerm] = useState('');
     const { searchRepositories } = useActions();
 
-    const classes = useStyles(useStyles);
+    const classes = useStyles();
 
     const onSubmit = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault();
